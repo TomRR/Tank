@@ -12,8 +12,8 @@ namespace Tank
             Fuellmenge = fuellMenge;
         }
 
-        public int Volumen { get; set; }
-        public int Fuellmenge { get; set; }
+        private int Volumen { get; set; }
+        private int Fuellmenge { get; set; }
 
         private bool IstBefuellenMoeglich(int menge)
         {
@@ -27,41 +27,64 @@ namespace Tank
         private int MitMengeBefuellen(int menge)
         {
             Fuellmenge += menge;
-            Console.WriteLine("Fuellmenge Tank: {0}", Fuellmenge);
+            FuellstandAnzeigen();
             return Fuellmenge;
         }        
         private int MengeEntnehmen(int menge)
         {
             Fuellmenge -= menge;
-            Console.WriteLine("Fuellmenge Tank: " + Fuellmenge);
+            FuellstandAnzeigen();
             return Fuellmenge;
         }
-
+        private int MengeEingeben()
+        {
+                return Convert.ToInt32(Console.ReadLine());         
+        }
+        private void FuellstandAnzeigen()
+        {
+            Console.WriteLine("Fuellmenge Tank: " + Fuellmenge);
+        }
         public void Befuellen()
         {
             Console.Write("Wieviel Liter moechten Sie einfuellen: ");
-            int menge = MengeEingeben();
+            try
+            {
+                int menge = MengeEingeben();
 
-            if (IstBefuellenMoeglich(menge))
-                MitMengeBefuellen(menge);
-            else
-                Console.WriteLine("Es passen nur noch {0} Liter hinein", Volumen - Fuellmenge);
-        }        
+                if (IstBefuellenMoeglich(menge))
+                    MitMengeBefuellen(menge);
+                else
+                    Console.WriteLine("Es passen nur noch {0} Liter hinein", Volumen - Fuellmenge);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Bitte gebe eine Zahl ein");
+            }
+
+        }
         public void Entnehmen()
         {
             Console.Write("Wieviel Liter moechten Sie ennehmen: ");
-            int menge = MengeEingeben();
+            try
+            {
+                int menge = MengeEingeben();
 
-            if (IstEntnehmenMoeglich(menge))
-                MengeEntnehmen(menge);
-            else
-                Console.WriteLine("Es sind nur noch {0} Liter im Tank!", Fuellmenge);
+                if (IstEntnehmenMoeglich(menge))
+                    MengeEntnehmen(menge);
+                else
+                    Console.WriteLine("Es sind nur noch {0} Liter im Tank!", Fuellmenge);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Bitte gebe eine Zahl ein");
+            }
         }
-
-        private int MengeEingeben()
+        public void Print()
         {
-            return Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Tankvolumen: {0} Liter", Volumen);
+            Console.WriteLine("Tankinhalt: {0} Liter", Fuellmenge);
         }
+
 
 
     }
