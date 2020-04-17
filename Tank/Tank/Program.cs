@@ -18,7 +18,7 @@ namespace Tank
              */
 
 
-            char auswahl = 'x';
+
             bool weiter;
             Tank einTank = new Tank(1000, 200);
 
@@ -37,7 +37,8 @@ namespace Tank
         {
             Console.Write("\nWas moechten Sie tun: \n\tTanker Eigenschaften (p)\n\tBefuellen (b)\n\tEntnehmen (e) \n\tBeenden (x)\n\t-->");
             try { char auswahl = Convert.ToChar(Console.ReadLine());
-
+                if (auswahl == 'p' || auswahl == 'b' || auswahl == 'e')
+                {
                     switch (auswahl)
                     {
                         case 'p':
@@ -50,18 +51,20 @@ namespace Tank
                         case 'e':
                             tank.Entnehmen();
                             break;
-                        default:
-                            Console.WriteLine("Default case");
-                            break;
-
                     }
                     return true;
                 }
-
-             catch (FormatException) { Console.WriteLine("Gebe einen Richtigen Wert ein");  return true; };
-            
-
-
+                if (auswahl == 'x')
+                {
+                    return false;
+                }
+                else
+                {
+                    Console.WriteLine("Gebe einen Richtigen Wert ein");
+                    return true;
+                }
+            } catch (FormatException) { Console.WriteLine("Gebe einen Richtigen Wert ein");  return true; };
+          
         }
 
     }
