@@ -17,31 +17,44 @@ namespace Tank
              *   bzw. beim Entnehmen noch verfuegbar ist.
              */
 
-            int menge;
-            char auswahl = 'x';
 
+            char auswahl = 'x';
             Tank einTank = new Tank(1000, 200);
 
-            Console.WriteLine("Tankvolumen: {0} Liter", einTank.Volumen);
-            Console.WriteLine("Tankinhalt: {0} Liter", einTank.Fuellmenge);
+            einTank.Print();
 
             do
-            {
-                Console.Write("\nWas moechten Sie tun: \n\tBefuellen (b)\n\tEntnehmen (e) \n\tBeenden (x)\n\t-->");
-                auswahl = Convert.ToChar(Console.ReadLine());
-
-                switch (auswahl)
+            {      
+                while(true)
+                try
                 {
-                    case 'b':
-                        einTank.Befuellen();
-                        break;
+                    Menu(einTank);
 
-                    case 'e':
-                        einTank.Entnehmen();
-                        break;
                 }
+                catch (FormatException) { if (true) { Console.WriteLine("Bitte ebe einen der angegebenen Buchstaben ein, um eine Vorgang durchzufuehren"); } else throw; }
+
             }
             while (auswahl != 'x');
         }
+        private static void Menu(Tank tank)
+        {
+            Console.Write("\nWas moechten Sie tun: \n\tTanker Eigenschaften (p)\n\tBefuellen (b)\n\tEntnehmen (e) \n\tBeenden (x)\n\t-->");
+            char auswahl = Convert.ToChar(Console.ReadLine());
+
+            switch (auswahl)
+            {
+                case 'p':
+                    tank.Print();
+                    break;
+                case 'b':
+                    tank.Befuellen();
+                    break;
+
+                case 'e':
+                    tank.Entnehmen();
+                    break;
+            }
+        }
+
     }
 }
