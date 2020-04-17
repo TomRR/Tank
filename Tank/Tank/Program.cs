@@ -19,41 +19,49 @@ namespace Tank
 
 
             char auswahl = 'x';
+            bool weiter;
             Tank einTank = new Tank(1000, 200);
 
             einTank.Print();
 
             do
             {      
-                while(true)
-                try
-                {
-                    Menu(einTank);
 
-                }
-                catch (FormatException) { if (true) { Console.WriteLine("Bitte ebe einen der angegebenen Buchstaben ein, um eine Vorgang durchzufuehren"); } else throw; }
+                   weiter = Menu(einTank);
+
 
             }
-            while (auswahl != 'x');
+            while (weiter);
         }
-        private static void Menu(Tank tank)
+        private static bool Menu(Tank tank)
         {
             Console.Write("\nWas moechten Sie tun: \n\tTanker Eigenschaften (p)\n\tBefuellen (b)\n\tEntnehmen (e) \n\tBeenden (x)\n\t-->");
-            char auswahl = Convert.ToChar(Console.ReadLine());
+            try { char auswahl = Convert.ToChar(Console.ReadLine());
 
-            switch (auswahl)
-            {
-                case 'p':
-                    tank.Print();
-                    break;
-                case 'b':
-                    tank.Befuellen();
-                    break;
+                    switch (auswahl)
+                    {
+                        case 'p':
+                            tank.Print();
+                            break;
+                        case 'b':
+                            tank.Befuellen();
+                            break;
 
-                case 'e':
-                    tank.Entnehmen();
-                    break;
-            }
+                        case 'e':
+                            tank.Entnehmen();
+                            break;
+                        default:
+                            Console.WriteLine("Default case");
+                            break;
+
+                    }
+                    return true;
+                }
+
+             catch (FormatException) { Console.WriteLine("Gebe einen Richtigen Wert ein");  return true; };
+            
+
+
         }
 
     }
