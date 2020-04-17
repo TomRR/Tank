@@ -33,17 +33,11 @@ namespace Tank
                 switch (auswahl)
                 {
                     case 'b':
-                        einTank.TankBefuellen();
+                        einTank.Befuellen();
                         break;
 
                     case 'e':
-                        Console.Write("Wieviel Liter moechten Sie ennehmen: ");
-                        menge = Convert.ToInt32(Console.ReadLine());
-
-                        if (einTank.IstEntnehmenMoeglich(menge))
-                            einTank.Entnehmen(menge);
-                        else
-                            Console.WriteLine("Es sind nur noch {0} Liter im Tank!", einTank.Fuellmenge);
+                        einTank.Entnehmen();
                         break;
                 }
             }
