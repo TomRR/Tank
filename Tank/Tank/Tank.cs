@@ -15,18 +15,37 @@ namespace Tank
         public int Volumen { get; set; }
         public int Fuellmenge { get; set; }
 
-        public bool istBefuellenMoeglich(int menge)
+        private bool IstBefuellenMoeglich(int menge)
         {
             return (Volumen >= Fuellmenge + menge) ? true : false;
         }
-        public bool istEntnehmenMoeglich(int menge)
+        public bool IstEntnehmenMoeglich(int menge)
         {
             return (Fuellmenge >= menge) ? true : false;
         }
 
         public int Befuellen(int menge)
         {
-            return Fuellmenge + menge;
+            Fuellmenge += menge;
+            Console.WriteLine("Fuellmenge Tank: {0}", Fuellmenge);
+            return Fuellmenge;
+        }        
+        public int Entnehmen(int menge)
+        {
+            Fuellmenge -= menge;
+            Console.WriteLine("Fuellmenge Tank: " + Fuellmenge);
+            return Fuellmenge;
+        }
+
+        public void TankBefuellen()
+        {
+            Console.Write("Wieviel Liter moechten Sie einfuellen: ");
+            int menge = Convert.ToInt32(Console.ReadLine());
+
+            if (IstBefuellenMoeglich(menge))
+                Befuellen(menge);
+            else
+                Console.WriteLine("Es passen nur noch {0} Liter hinein", Volumen - Fuellmenge);
         }
 
 
