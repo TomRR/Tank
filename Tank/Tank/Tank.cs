@@ -12,8 +12,8 @@ namespace Tank
             Fuellmenge = fuellMenge;
         }
 
-        private int Volumen { get; set; }
-        private int Fuellmenge { get; set; }
+        public int Volumen { get; set; }
+        public int Fuellmenge { get; set; }
 
         private bool IstBefuellenMoeglich(int menge)
         {
@@ -84,7 +84,6 @@ namespace Tank
             Console.WriteLine("Tankvolumen: {0} Liter", Volumen);
             Console.WriteLine("Tankinhalt: {0} Liter", Fuellmenge);
         }
-
 
 
     }
