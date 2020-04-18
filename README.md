@@ -16,3 +16,8 @@
 <img src="markdown/terminal_output.png"
      alt="UML Darstellung der Tank Klasse"
      style="float: center; margin-right: 10px;" />
+     
+     
+     ![GitHub Logo](/markdown/uml_tank_class.png)
+Format: ![Alt Text](url)
+
