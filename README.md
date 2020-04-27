@@ -1,7 +1,3 @@
-<style type="text/css">
-    ul { list-style-type: lower-alpha; }
-</style>
-
 # Tank
 - Auf der Rückseite befindet sich ein exemplarischer Screenshot des Programms. Stellen Sie das im Programm erzeugte Objekt einTank unmittelbar vor dem Beenden des Programms, in einer UML konformen Darstellung mit Attributen dar.
 - Fertigen Sie ein UML konformes OOD-Modell der Klasse Tank mit allen Attributen, Eigenschaften und Methoden an.
