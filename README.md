@@ -8,16 +8,13 @@
 - Implementieren Sie die Klasse Tank.d)Erweitern Sie das Hauptprogramm um eine sinnvolle Ausnahmebehandlung, die Message der Exception soll auf der Konsole ausgegeben werden
 
 ### UML Darstellung der Tank Klasse
-![Image]<img src="markdown/uml_tank_class.png"
+![Image]<img src="https://ecstatic-edison-c0b108.netlify.app/school/tank/img/UmlClass.png"
      alt="UML Darstellung der Tank Klasse"
      style="float: center; margin-right: 10px;" />
 
 ### Terminal Output mit UML Darstellund des Objektes einTank mit Attributen und Funktionen
-<img src="markdown/terminal_output.png"
+<img src="https://ecstatic-edison-c0b108.netlify.app/school/tank/img/terminal_output.png"
      alt="UML Darstellung der Tank Klasse"
      style="float: center; margin-right: 10px;" />
-     
-     
-     ![GitHub Logo](/markdown/uml_tank_class.png)
-Format: ![Alt Text](url)
+    
 
